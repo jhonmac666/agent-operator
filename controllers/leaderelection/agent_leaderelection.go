@@ -24,8 +24,8 @@ import (
 	"github.com/google/go-cmp/cmp"
 
 	"github.com/go-logr/logr"
-	"github.com/procyon-projects/chrono"
 	"github.com/jhonmac666/agent-operator/controllers/leaderelection/coordination_api"
+	"github.com/procyon-projects/chrono"
 	coreV1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/labels"
 	"sigs.k8s.io/controller-runtime/pkg/client"

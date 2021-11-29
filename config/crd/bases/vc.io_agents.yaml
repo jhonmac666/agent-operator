@@ -17,8 +17,7 @@ spec:
     shortNames:
     - ia
     singular: agent
-  # scope: Namespaced
-  scope: Cluster
+  scope: Namespaced
   versions:
   - name: v1
     schema:
@@ -73,12 +72,6 @@ spec:
                   downloadKey:
                     description: agent.downloadKey is key, sometimes known as "sales
                       key", that allows you to download, software from VC.
-                    type: string
-                  vcMvnRepoUrl:
-                    description: Override for the Maven repository URL when the Agent
-                      needs to connect to a locally provided Maven repository 'proxy'
-                      Alternative to 'host.repository' for referencing a different
-                      Maven repo.
                     type: string
                   endpointHost:
                     description: agent.endpointHost is the hostname of the VC server
@@ -1256,6 +1249,12 @@ spec:
                           or "OnDelete". Default is RollingUpdate.
                         type: string
                     type: object
+                  vcMvnRepoUrl:
+                    description: Override for the Maven repository URL when the Agent
+                      needs to connect to a locally provided Maven repository 'proxy'
+                      Alternative to 'host.repository' for referencing a different
+                      Maven repo.
+                    type: string
                 type: object
               agent.clusterRoleBindingName:
                 type: string
@@ -1404,10 +1403,10 @@ spec:
                     type: boolean
                 type: object
               service:
-                description: 'Specifies whether to create the vcagent service to
-                  expose within the cluster the Prometheus remote-write, OpenTelemetry
-                  GRCP endpoint and other APIs Note: Requires Kubernetes 1.17+, as
-                  it uses topologyKeys'
+                description: 'Specifies whether to create the vcagent service to expose
+                  within the cluster the Prometheus remote-write, OpenTelemetry GRCP
+                  endpoint and other APIs Note: Requires Kubernetes 1.17+, as it uses
+                  topologyKeys'
                 properties:
                   create:
                     type: boolean
