@@ -30,8 +30,8 @@ import (
 )
 
 const (
-	helmRepo       = "https://jhonmac666.github.io/helm-charts"
-	agentChartName = "vcagent"
+	helmRepo       = "https://agents.instana.io/helm"
+	agentChartName = "instana-agent"
 )
 
 var (
