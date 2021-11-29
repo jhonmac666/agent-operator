@@ -151,9 +151,9 @@ func (h *HelmReconciliation) CreateOrUpdate(_ ctrl.Request, crdInstance *vcV1.Vc
 		upgradeAction.PostRenderer = NewAgentChartPostRenderer(h, crdInstance)
 		upgradeAction.Version = fixChartVersion(upgradeAction.Version, upgradeAction.Devel)
 
-		h.log.Info("h.crAppNamespace", h.crAppNamespace)
-		h.log.Info("h.crAppName", h.crAppName)
-		h.log.Info("helmRepo", helmRepo)
+		//h.log.Info("h.crAppNamespace", h.crAppNamespace)
+		//h.log.Info("h.crAppName", h.crAppName)
+		//h.log.Info("helmRepo", helmRepo)
 
 		agentChart, err := h.loadAndValidateChart(upgradeAction.ChartPathOptions)
 		if err != nil {
