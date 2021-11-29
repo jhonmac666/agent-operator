@@ -2,6 +2,7 @@
 # (c) Copyright IBM Corp. 2021
 # (c) Copyright VC Inc.
 #
+
 # Build the manager binary, always build on amd64 platform
 FROM --platform=linux/amd64 golang:1.16 as builder
 
