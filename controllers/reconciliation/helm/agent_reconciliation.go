@@ -12,8 +12,8 @@ import (
 	"sigs.k8s.io/yaml"
 
 	"github.com/go-logr/logr"
-	"github.com/pkg/errors"
 	vcV1 "github.com/jhonmac666/agent-operator/api/v1"
+	"github.com/pkg/errors"
 
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/client-go/discovery"
@@ -151,9 +151,9 @@ func (h *HelmReconciliation) CreateOrUpdate(_ ctrl.Request, crdInstance *vcV1.Vc
 		upgradeAction.PostRenderer = NewAgentChartPostRenderer(h, crdInstance)
 		upgradeAction.Version = fixChartVersion(upgradeAction.Version, upgradeAction.Devel)
 
-		h.log.Info("h.crAppNamespace" , h.crAppNamespace)
-		h.log.Info("h.crAppName" , h.crAppName)
-		h.log.Info("helmRepo" , helmRepo)
+		h.log.Info("h.crAppNamespace", h.crAppNamespace)
+		h.log.Info("h.crAppName", h.crAppName)
+		h.log.Info("helmRepo", helmRepo)
 
 		agentChart, err := h.loadAndValidateChart(upgradeAction.ChartPathOptions)
 		if err != nil {
