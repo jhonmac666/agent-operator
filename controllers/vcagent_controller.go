@@ -201,19 +201,19 @@ func (r *VcAgentReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ct
 		return ctrl.Result{}, err
 	}
 
-	// First try to start Leader Election Coordination so to return error if we cannot get it started
-	if r.leaderElector == nil || !r.leaderElector.IsLeaderElectionScheduled() {
-		if r.leaderElector != nil {
-			// As we'll replace the Leader Elector instance make sure to properly clean up old one
-			r.leaderElector.CancelLeaderElection()
-		}
+	//// First try to start Leader Election Coordination so to return error if we cannot get it started
+	//if r.leaderElector == nil || !r.leaderElector.IsLeaderElectionScheduled() {
+		//if r.leaderElector != nil {
+			//// As we'll replace the Leader Elector instance make sure to properly clean up old one
+			//r.leaderElector.CancelLeaderElection()
+		//}
 
-		r.leaderElector = leaderelection.NewLeaderElection(r.client, req.NamespacedName)
-		if err := r.leaderElector.StartCoordination(r.crAppNamespace); err != nil {
-			r.log.Error(err, "Failure starting Leader Election Coordination")
-			return ctrl.Result{}, err
-		}
-	}
+		//r.leaderElector = leaderelection.NewLeaderElection(r.client, req.NamespacedName)
+		//if err := r.leaderElector.StartCoordination(r.crAppNamespace); err != nil {
+			//r.log.Error(err, "Failure starting Leader Election Coordination")
+			//return ctrl.Result{}, err
+		//}
+	//}
 
 	if err := r.agentReconciliation.CreateOrUpdate(req, crdInstance); err != nil {
 		return ctrl.Result{}, err
